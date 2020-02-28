@@ -1,5 +1,8 @@
 # React To Do App
 
+### `npm install`
+Install all project dependencies
+
 ### `npm start`
 Runs the app in the development mode
 

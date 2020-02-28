@@ -5,12 +5,12 @@ import './todo-list.css'
 
 const TodoList = ({ todos, onDeleted }) => {
   const elements = todos.map(item => {
-    const { id, label } = item
+    const { id } = item
 
     return (
       <li key={id} className='list-group-item'>
         <TodoListItem
-          label={label}
+          { ...item }
           onDeleted={() => onDeleted(id)} />
       </li>
     )
