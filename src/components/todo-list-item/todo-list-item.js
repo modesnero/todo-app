@@ -5,44 +5,35 @@ import './todo-list-item.css'
 export default class TodoListItem extends React.Component {
   state = {
     done: false,
-    labelClasses: 'todo-list-item-label'
+    important: false,
+    ...this.props
   }
-  
+
   onLabelClick = () => {
-    if (this.state.done) {
-      this.setState({
-        done: false,
-        labelClasses: 'todo-list-item-label'
-      })
-    } else {
-      this.setState({
-        done: true,
-        labelClasses: this.state.labelClasses += ' done'
-      })
-    }
+    this.setState(({ done }) => ({ done: !done }))
   }
 
-  render () {
-    const { label, important = false } = this.props
+  onImportantClick = () => {
+    this.setState(({ important }) => ({ important: !important }))
+  }
 
-    const style = {
-      color: important ? 'steelblue' : 'black',
-      fontWeight: important ? 'bold' : 'normal'
-    }
+  render() {
+    const { done, important, label, onDeleted } = this.state
+
+    let labelClasses = 'todo-list-item'
+    if (done) labelClasses += ' done'
+    if (important) labelClasses += ' important'
 
     return (
-      <span className='todo-list-item'>
-        <span
-          className={this.state.labelClasses}
-          style={style}
-          onClick={this.onLabelClick}
-        >
+      <span className={labelClasses}>
+        <span className='todo-list-item-label' onClick={this.onLabelClick}>
           {label}
         </span>
 
         <button
           type='button'
           className='btn btn-outline-success btn-sm float-right'
+          onClick={this.onImportantClick}
         >
           <i className='fa fa-exclamation' />
         </button>
@@ -50,6 +41,7 @@ export default class TodoListItem extends React.Component {
         <button
           type='button'
           className='btn btn-outline-danger btn-sm float-right'
+          onClick={onDeleted}
         >
           <i className='fa fa-trash-o' />
         </button>
