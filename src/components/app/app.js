@@ -39,11 +39,8 @@ export default class App extends Component {
     return (
       <div className='todo-app'>
         <AppHeader toDo={1} done={3} />
-        <div className='top-panel d-flex'>
-          <SearchPanel />
-          <ItemStatusFilter />
-        </div>
-
+        <ItemStatusFilter />
+        <SearchPanel />
         <TodoList
           todos={todoData}
           onDeleted={this.deleteItem}

@@ -11,18 +11,18 @@ export default class AddItemPanel extends Component {
   render() {
     const { addItem, inputVal } = this.state
     return (
-      <div className="mt-3 mb-5">
-        <button
-          className="btn btn-block btn-primary"
-          onClick={() => addItem(inputVal)}
-        >
-          Add Item
-        </button>
+      <div className="mb-5">
         <input
           type="text"
           onChange={this.inputHandler}
-          className="form-control mt-3"
-          placeholder="Enter task label" />
+          className="form-control mt-2"
+          placeholder="Введите название задачи" />
+        <button
+          className="btn btn-block btn-primary mt-2"
+          onClick={() => addItem(inputVal)}
+        >
+          Добавить задачу
+        </button>
       </div>
     )
   }
