@@ -8,9 +8,9 @@ export default class ItemStatusFilter extends Component {
     const classArr = []
     for (let i = 0; i < 3; i++) {
       if (filterStatus === i) {
-        classArr.push('btn btn-info')
+        classArr.push('btn btn-primary')
       } else {
-        classArr.push('btn btn-outline-secondary')
+        classArr.push('btn btn-outline-primary')
       }
     }
     return (

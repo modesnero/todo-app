@@ -41,7 +41,7 @@ const TodoList = props => {
     }
   })
 
-  return <ul className='list-group todo-list'>{elements}</ul>
+  return <ul className='list-group todo-list mt-3 mb-3'>{elements}</ul>
 }
 
 export default TodoList

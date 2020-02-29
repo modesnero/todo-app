@@ -1,5 +1,7 @@
 .todo-list-item {
   font-size: 1.25rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .todo-list-item button {
@@ -8,7 +10,9 @@
 }
 
 .todo-list-item-label {
-  margin-left: 1.25rem;
+  display: block;
+  overflow: auto;
+  margin-left: 0.4rem;
   line-height: 35px;
   cursor: pointer;
   user-select: none;
@@ -20,5 +24,5 @@
 
 .todo-list-item.important .todo-list-item-label {
   font-weight: bold;
-  color: steelblue;
+  color: #1E2B37;
 }
