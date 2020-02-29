@@ -4,15 +4,37 @@ import './item-status-filter.css'
 
 export default class ItemStatusFilter extends Component {
   render() {
+    const { onChangeFilterStatus, filterStatus } = this.props
+    let classArr = []
+    for (let i = 0; i < 3; i++) {
+      console.log(i, filterStatus)
+      if (filterStatus === i) {
+        classArr.push('btn btn-info')
+      } else {
+        classArr.push('btn btn-outline-secondary')
+      }
+    }
     return (
       <div className='btn-group d-flex mb-2'>
-        <button type='button' className='btn btn-info'>
+        <button
+          type='button'
+          className={classArr[0]}
+          onClick={() => onChangeFilterStatus(0)}
+        >
           Все
         </button>
-        <button type='button' className='btn btn-outline-secondary'>
+        <button 
+          type='button' 
+          className={classArr[1]}
+          onClick={() => onChangeFilterStatus(1)}
+        >
           Активные
         </button>
-        <button type='button' className='btn btn-outline-secondary'>
+        <button
+          type='button'
+          className={classArr[2]}
+          onClick={() => onChangeFilterStatus(2)}
+        >
           Выполненные
         </button>
       </div>

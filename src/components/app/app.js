@@ -11,19 +11,25 @@ import './app.css'
 export default class App extends Component {
   state = {
     todoData: [
-      { label: 'Drink Coffee', id: 1, important: false, done: false },
-      { label: 'Make Awesome App', id: 2, important: false, done: false },
-      { label: 'Have a lunch', id: 3, important: false, done: false }
+      { label: 'Попить чай', id: 1, important: false, done: false },
+      { label: 'Замутить todo на реакте', id: 2, important: false, done: false },
+      { label: 'Пойти спать', id: 3, important: false, done: false }
     ],
     totalItems: 3,
-    doneItems: 0
+    doneItems: 0,
+    itemCount: 3,
+    filterStatus: 0
+  }
+
+  onChangeFilterStatus = (newStatus) => {
+    this.setState({ filterStatus: newStatus })
   }
 
   calculatingItems = () => {
-    this.setState(({ todoData, totalItems, doneItems }) => {
+    this.setState(({ todoData }) => {
       let newTotalItems = 0
       let newDoneItems = 0
-      todoData.forEach((item, i, arr) => {
+      todoData.forEach((item) => {
         newTotalItems++
         if (item.done) newDoneItems++
       })
@@ -42,15 +48,15 @@ export default class App extends Component {
   }
 
   addItem = label => {
-    this.setState(({ todoData }) => {
+    this.setState(({ todoData, itemCount }) => {
       const newTodoData = todoData.slice()
       newTodoData.push({
         label,
-        id: todoData.length + 1,
+        id: itemCount + 1,
         important: false,
         done: false
       })
-      return { todoData: newTodoData }
+      return { todoData: newTodoData, itemCount: itemCount + 1 }
     })
     this.calculatingItems()
   }
@@ -76,13 +82,16 @@ export default class App extends Component {
   }
 
   render () {
-    const { todoData, totalItems, doneItems } = this.state
+    const { todoData, totalItems, doneItems, filterStatus } = this.state
     return (
       <div className='todo-app'>
         <AppHeader toDo={totalItems - doneItems} done={doneItems} />
-        <ItemStatusFilter />
+        <ItemStatusFilter 
+          onChangeFilterStatus={this.onChangeFilterStatus}
+          filterStatus={filterStatus} />
         <SearchPanel />
         <TodoList
+          filterStatus={filterStatus}
           todos={todoData}
           onDeleted={this.deleteItem}
           onImportantToggle={this.onImportantToggle}

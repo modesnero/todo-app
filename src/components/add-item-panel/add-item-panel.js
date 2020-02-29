@@ -14,6 +14,7 @@ export default class AddItemPanel extends Component {
         <input
           id='addInput'
           type='text'
+          value={this.inputVal}
           onChange={this.inputHandler}
           className='form-control mt-2'
           placeholder='Введите название задачи'
@@ -21,7 +22,7 @@ export default class AddItemPanel extends Component {
         <button
           className='btn btn-block btn-primary mt-2'
           onClick={event => {
-            document.querySelector('#addInput').value = ''
+            this.setState({ inputVal: '' })
             addItem(inputVal)
           }}
         >
