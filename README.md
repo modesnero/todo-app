@@ -1,8 +1,7 @@
 # React ToDo
 Simple todo app on React & Bootstrap
 
-## View the app
-[View the app](https://modesnero.github.io/todo-react/)
+## [View the app](https://modesnero.github.io/todo-react/)
 
 ## Available Scripts
 
