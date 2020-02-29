@@ -18,7 +18,8 @@ export default class App extends Component {
     totalItems: 3,
     doneItems: 0,
     itemCount: 3,
-    filterStatus: 0
+    filterStatus: 0,
+    searchStatus: ''
   }
 
   onChangeFilterStatus = (newStatus) => {
