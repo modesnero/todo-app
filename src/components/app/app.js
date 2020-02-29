@@ -10,19 +10,10 @@ import './app.css'
 
 export default class App extends Component {
   state = {
-    todoData: [
-      { label: 'Попить чай', id: 1, important: false, done: false },
-      {
-        label: 'Замутить todo на реакте',
-        id: 2,
-        important: false,
-        done: false
-      },
-      { label: 'Пойти спать', id: 3, important: false, done: false }
-    ],
-    totalItems: 3,
+    todoData: [],
+    totalItems: 0,
     doneItems: 0,
-    itemCount: 3,
+    itemCount: 0,
     filterStatus: 0,
     searchStatus: ''
   }
