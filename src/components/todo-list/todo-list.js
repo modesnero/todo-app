@@ -9,16 +9,25 @@ const TodoList = props => {
     onDeleted,
     onDoneToggle,
     onImportantToggle,
-    filterStatus
+    filterStatus,
+    searchStatus
   } = props
+
   // eslint-disable-next-line array-callback-return
   const elements = todos.map(item => {
-    const { id, done } = item
-    if (
+    const { id, done, label } = item
+
+    const isFilterParcing =
       filterStatus === 0 ||
       (filterStatus === 1 && !done) ||
       (filterStatus === 2 && done)
-    ) {
+
+    const isSearchPassing = searchStatus === '' ||
+      label.includes(searchStatus) ||
+      label.toLowerCase().includes(searchStatus) ||
+      label.toUpperCase().includes(searchStatus)
+
+    if (isFilterParcing && isSearchPassing) {
       return (
         <li key={id} className='list-group-item'>
           <TodoListItem

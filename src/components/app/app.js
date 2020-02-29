@@ -12,7 +12,12 @@ export default class App extends Component {
   state = {
     todoData: [
       { label: 'Попить чай', id: 1, important: false, done: false },
-      { label: 'Замутить todo на реакте', id: 2, important: false, done: false },
+      {
+        label: 'Замутить todo на реакте',
+        id: 2,
+        important: false,
+        done: false
+      },
       { label: 'Пойти спать', id: 3, important: false, done: false }
     ],
     totalItems: 3,
@@ -22,7 +27,11 @@ export default class App extends Component {
     searchStatus: ''
   }
 
-  onChangeFilterStatus = (newStatus) => {
+  onChangeSearch = value => {
+    this.setState({ searchStatus: value })
+  }
+
+  onChangeFilterStatus = newStatus => {
     this.setState({ filterStatus: newStatus })
   }
 
@@ -30,7 +39,7 @@ export default class App extends Component {
     this.setState(({ todoData }) => {
       let newTotalItems = 0
       let newDoneItems = 0
-      todoData.forEach((item) => {
+      todoData.forEach(item => {
         newTotalItems++
         if (item.done) newDoneItems++
       })
@@ -83,15 +92,23 @@ export default class App extends Component {
   }
 
   render () {
-    const { todoData, totalItems, doneItems, filterStatus } = this.state
+    const {
+      todoData,
+      totalItems,
+      doneItems,
+      filterStatus,
+      searchStatus
+    } = this.state
     return (
       <div className='todo-app'>
         <AppHeader toDo={totalItems - doneItems} done={doneItems} />
-        <ItemStatusFilter 
+        <ItemStatusFilter
           onChangeFilterStatus={this.onChangeFilterStatus}
-          filterStatus={filterStatus} />
-        <SearchPanel />
+          filterStatus={filterStatus}
+        />
+        <SearchPanel onChangeSearch={this.onChangeSearch} />
         <TodoList
+          searchStatus={searchStatus}
           filterStatus={filterStatus}
           todos={todoData}
           onDeleted={this.deleteItem}

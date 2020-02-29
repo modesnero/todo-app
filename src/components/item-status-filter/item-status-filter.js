@@ -5,9 +5,8 @@ import './item-status-filter.css'
 export default class ItemStatusFilter extends Component {
   render() {
     const { onChangeFilterStatus, filterStatus } = this.props
-    let classArr = []
+    const classArr = []
     for (let i = 0; i < 3; i++) {
-      console.log(i, filterStatus)
       if (filterStatus === i) {
         classArr.push('btn btn-info')
       } else {
@@ -23,8 +22,8 @@ export default class ItemStatusFilter extends Component {
         >
           Все
         </button>
-        <button 
-          type='button' 
+        <button
+          type='button'
           className={classArr[1]}
           onClick={() => onChangeFilterStatus(1)}
         >
