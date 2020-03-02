@@ -7,7 +7,7 @@ export default class AddItemPanel extends Component {
     this.setState({ inputVal: event.target.value })
   }
 
-  addItemHandler = () => {
+  onSubmit = () => {
     const { inputVal } = this.state
     this.props.addItem(inputVal)
     this.setState({ inputVal: '' })
@@ -16,7 +16,7 @@ export default class AddItemPanel extends Component {
   render () {
     const { inputVal } = this.state
     return (
-      <div className='mb-5'>
+      <form className='mb-5' onSubmit={this.onSubmit}>
         <input
           id='addInput'
           type='text'
@@ -25,13 +25,10 @@ export default class AddItemPanel extends Component {
           className='form-control mt-2'
           placeholder='Новая задача'
         />
-        <button
-          className='btn btn-block btn-primary mt-2'
-          onClick={this.addItemHandler}
-        >
+        <button className='btn btn-block btn-primary mt-2'>
           Добавить задачу
         </button>
-      </div>
+      </form>
     )
   }
 }
