@@ -9,9 +9,9 @@ import './app.css'
 export default class App extends Component {
   constructor (props) {
     super(props)
-    const state = JSON.parse(localStorage.appState)
-    if (state.hasOwnProperty('todoData')) this.state = state
-    else
+    try {
+      this.state = JSON.parse(localStorage.appState)
+    } catch {
       this.state = {
         todoData: [],
         totalItems: 0,
@@ -20,6 +20,7 @@ export default class App extends Component {
         filterStatus: 0,
         searchStatus: ''
       }
+    }
   }
 
   onChangeSearch = value => {
