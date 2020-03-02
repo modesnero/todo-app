@@ -23,7 +23,7 @@ export default class AddItemPanel extends Component {
           value={inputVal}
           onChange={this.inputHandler}
           className='form-control mt-2'
-          placeholder='Введите название задачи'
+          placeholder='Новая задача'
         />
         <button
           className='btn btn-block btn-primary mt-2'

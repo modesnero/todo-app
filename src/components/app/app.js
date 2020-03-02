@@ -9,13 +9,19 @@ import AddItemPanel from '../add-item-panel'
 import './app.css'
 
 export default class App extends Component {
-  state = {
-    todoData: [],
-    totalItems: 0,
-    doneItems: 0,
-    itemCount: 0,
-    filterStatus: 0,
-    searchStatus: ''
+
+  constructor(props) {
+    super(props)
+    const state = JSON.parse(localStorage.appState)
+    if (state.hasOwnProperty('todoData')) this.state = state
+    else this.state = {
+      todoData: [],
+      totalItems: 0,
+      doneItems: 0,
+      itemCount: 0,
+      filterStatus: 0,
+      searchStatus: ''
+    }
   }
 
   onChangeSearch = value => {
@@ -90,6 +96,7 @@ export default class App extends Component {
       filterStatus,
       searchStatus
     } = this.state
+    localStorage.appState = JSON.stringify(this.state)
     return (
       <div className='todo-app'>
         <AppHeader toDo={totalItems - doneItems} done={doneItems} />
