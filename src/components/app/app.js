@@ -1,27 +1,25 @@
 import React, { Component } from 'react'
-
 import AppHeader from '../app-header'
 import SearchPanel from '../search-panel'
 import TodoList from '../todo-list'
 import ItemStatusFilter from '../item-status-filter'
 import AddItemPanel from '../add-item-panel'
-
 import './app.css'
 
 export default class App extends Component {
-
-  constructor(props) {
+  constructor (props) {
     super(props)
     const state = JSON.parse(localStorage.appState)
     if (state.hasOwnProperty('todoData')) this.state = state
-    else this.state = {
-      todoData: [],
-      totalItems: 0,
-      doneItems: 0,
-      itemCount: 0,
-      filterStatus: 0,
-      searchStatus: ''
-    }
+    else
+      this.state = {
+        todoData: [],
+        totalItems: 0,
+        doneItems: 0,
+        itemCount: 0,
+        filterStatus: 0,
+        searchStatus: ''
+      }
   }
 
   onChangeSearch = value => {
