@@ -7,7 +7,8 @@ export default class AddItemPanel extends Component {
     this.setState({ inputVal: event.target.value })
   }
 
-  onSubmit = () => {
+  onSubmit = e => {
+    e.preventDefault()
     const { inputVal } = this.state
     this.props.addItem(inputVal)
     this.setState({ inputVal: '' })

@@ -17,15 +17,12 @@ const TodoList = props => {
   const elements = todos.map(item => {
     const { id, done, label } = item
 
-    const isFilterParcing =
-      filterStatus === 0 ||
+    const isFilterParcing = filterStatus === 0 ||
       (filterStatus === 1 && !done) ||
       (filterStatus === 2 && done)
 
     const isSearchPassing = searchStatus === '' ||
-      label.includes(searchStatus) ||
-      label.toLowerCase().includes(searchStatus) ||
-      label.toUpperCase().includes(searchStatus)
+      label.toLowerCase().includes(searchStatus)
 
     if (isFilterParcing && isSearchPassing) {
       return (

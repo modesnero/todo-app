@@ -4,7 +4,7 @@ import './search-panel.css'
 
 export default class SearchPanel extends Component {
   searchChanged = event => {
-    this.props.onChangeSearch(event.target.value)
+    this.props.onChangeSearch(event.target.value.toLowerCase())
   }
 
   render() {
