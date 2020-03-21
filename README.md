@@ -1,6 +1,8 @@
 # React ToDo
 Simple React todo app. Use Boostrap styles & localstorage to save data
 
+## [View the app](https://modesnero.github.io/todo-app/)
+
 ## Available Scripts
 
 ### `npm install`
