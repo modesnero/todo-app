@@ -6,7 +6,7 @@
   "author": "modesnero <modesnero@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/modesnero/todo-react"
+    "url": "https://github.com/modesnero/todo-app"
   },
   "homepage": "https://modesnero.github.io/todo-app",
   "scripts": {
