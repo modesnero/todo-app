@@ -1,5 +1,5 @@
 {
-  "name": "todo-react",
+  "name": "todo-app",
   "version": "0.1.0",
   "private": true,
   "description": "Simple React todo app. Use Boostrap styles & localstorage to save data",
@@ -12,7 +12,7 @@
     "node": "13.9.0",
     "npm": "6.13.7"
   },
-  "homepage": "https://modesnero.github.io/todo-react",
+  "homepage": "https://modesnero.github.io/todo-app",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
